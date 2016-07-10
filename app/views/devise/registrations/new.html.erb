@@ -1,41 +1,35 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-offset-3 col-sm-6">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h2 class="panel-title">Sign up</h2>
-        </div>
-        <div class="panel-body">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= devise_error_messages! %>
-            
-            <div class="form-group label-floating">
-              <%= f.label :email, class: 'control-label' %>
-              <%= f.email_field :email, class: 'form-control', autofocus: true, required: 'required' %>
-              <span class="help-block">Please enter a valid email address</span>
-            </div>
-            
-            <div class="form-group label-floating">
-              <%= f.label :name, class: 'control-label' %>
-              <%= f.text_field :name, class: 'form-control', required: 'required', minlength: 3 %>
-              <span class="help-block">Please enter 3 or more characters</span>
-            </div>
-          
-            <div class="form-group label-floating">
-              <%= f.label :password, class: 'control-label' %>
-              <%= f.password_field :password, class: 'form-control', autocomplete: "off", required: 'required', minlength: 6 %>
-              <% if @minimum_password_length %>
-                <span class="help-block">Please enter <%= @minimum_password_length %> or more characters</span>
-              <% end %>
-            </div>
-        
-            <div class="actions">
-              <%= f.submit "Sign up", class: 'btn btn-raised btn-primary' %>
-              <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-raised btn-link' %>
-            </div>
-          <% end %>
-        </div>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 class="panel-title">Sign Up</h1>
+  </div>
+  <div class="panel-body">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      
+      <div class="form-group label-floating">
+        <%= f.label :email, class: 'control-label' %>
+        <%= f.email_field :email, class: 'form-control', autofocus: true, required: 'required' %>
+        <span class="help-block">Please enter a valid email address</span>
       </div>
-    </div>
+      
+      <div class="form-group label-floating">
+        <%= f.label :name, class: 'control-label' %>
+        <%= f.text_field :name, class: 'form-control', required: 'required', minlength: 3 %>
+        <span class="help-block">Please enter 3 or more characters</span>
+      </div>
+    
+      <div class="form-group label-floating">
+        <%= f.label :password, class: 'control-label' %>
+        <%= f.password_field :password, class: 'form-control', autocomplete: "off", required: 'required', minlength: 6 %>
+        <% if @minimum_password_length %>
+          <span class="help-block">Please enter <%= @minimum_password_length %> or more characters</span>
+        <% end %>
+      </div>
+  
+      <%= f.submit "Sign up", class: 'btn btn-raised btn-primary' %>
+      <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-raised btn-link' %>
+      
+    <% end %>
   </div>
 </div>
+

@@ -1,0 +1,5 @@
+<%= form_tag '', id: 'message_form' do %>
+  <%= text_area_tag :message_body, '', class: "form-control", rows: '3' %>
+  <%= hidden_field_tag :message_user_id, current_user.id %>
+  <%= submit_tag('Send', id: 'message_submit', class: 'btn btn-primary btn-raised') %>
+<% end %>

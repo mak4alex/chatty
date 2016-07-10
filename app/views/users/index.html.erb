@@ -1,0 +1,16 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h1 class="panel-title">Users</h1>
+  </div>
+  <div class="panel-body">
+    <%= render 'search_form' %>
+  </div>
+  <div class="list-group">
+    <div id="users">
+      <%= render(@users) || no_records('users') %>
+    </div>
+    <div class="list-group-item pagination">
+      <%= render partial: 'shared/next_page_link', locals: { objects: @users }%>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div id="talk" data-talk-id="<%= @talk.id %>" class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-9">
+        <h1 class="panel-title"><%= @talk.title %></h1>
+      </div>
+      <div class="col-xs-3 text-right">
+        <%= link_to talks_url do %>
+          <h1 class="panel-title">
+            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>  
+          </h1>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <%= render 'messages/form' %>
+  </div>
+  <div class="panel-footer messages-wraper">
+    <div id="messages">
+      <%= render(@messages) || no_records('messages') %>
+    </div>
+    <div class="pagination">
+      <%= render partial: 'shared/next_page_link', locals: { objects: @messages }%>
+    </div>
+  </div>
+</div>
+ 

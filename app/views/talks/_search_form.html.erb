@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-12 search-form">
+    <%= form_tag("", method: "get") do %>
+      <div class="form-group label-floating">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="material-icons">speaker_notes</i>
+          </span>
+          <%= label_tag(:q, "Search for talks", class: "control-label") %>
+          <%= text_field_tag(:q, params[:q], class: 'form-control') %>
+          <span class="input-group-btn">
+            <%= submit_tag("Search", class: 'btn btn-raised btn-info') %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

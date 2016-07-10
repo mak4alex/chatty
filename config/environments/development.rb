@@ -27,11 +27,26 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
   
-   config.action_mailer.default_url_options = { host: '0.0.0.0', port: 8080 }
+  config.action_mailer.default_url_options = { 
+    host: 'chatty-mak4alex.c9users.io', 
+    port: 80
+  }
+  
+  config.action_mailer.delivery_method = :mailgun
+  
+  config.action_mailer.mailgun_settings = {
+    address:        ENV['EMAIL_ADDRESS'],
+    port:           ENV['EMAIL_PORT'],
+    domain:         ENV['EMAIL_DOMAIN'],
+    api_key:        ENV['EMAIL_API_KEY'],
+    user_name:      ENV['EMAIL_USER_NAME'],
+    password:       ENV['EMAIL_PASSWORD'],
+    authentication: 'plain'
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -53,4 +68,6 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  
+  config.action_cable.allowed_request_origins = ['http://chatty-mak4alex.c9users.io']
 end

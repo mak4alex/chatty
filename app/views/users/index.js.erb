@@ -1,0 +1,8 @@
+$("<%=j render @users %>").appendTo($("#users"));
+
+<% if @users.last_page? %>
+  $('.pagination').html("");
+<% else %>
+  $('.pagination')
+    .html("<%=j render partial: 'shared/next_page_link', locals: { objects: @users } %>");
+<% end %>

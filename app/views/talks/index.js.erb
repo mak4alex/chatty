@@ -1,0 +1,8 @@
+$("<%=j render @talks %>").appendTo($("#talks"));
+
+<% if @talks.last_page? %>
+  $('.pagination').html("");
+<% else %>
+  $('.pagination')
+    .html("<%=j render partial: 'shared/next_page_link', locals: { objects: @talks } %>");
+<% end %>

@@ -21,4 +21,8 @@ module ApplicationHelper
     nil
   end
   
+  def no_records(text)
+    render(partial: 'shared/no_records', locals: { text: text })
+  end
+  
 end

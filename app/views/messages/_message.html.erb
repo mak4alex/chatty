@@ -1,0 +1,14 @@
+<div id="message" class="media">
+  <div class="media-left">
+    <img class="circle" src="http://iconizer.net/files/Duesseldorf/orig/user.png" alt="icon">
+  </div>
+  <div class="media-body word-break">
+    <h4 class="media-heading">
+      <%= message.user.name %>
+      <span class="label label-default pull-right">
+        <%= message.created_at.strftime("%T %F") %>
+      </span>
+    </h4>
+    <p><%= message.body %></p>
+  </div>
+</div>

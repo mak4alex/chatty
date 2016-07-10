@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-9">
+        <h1 class="panel-title">My Talks</h1>
+      </div>
+      <div class="col-xs-3 text-right">
+        <%= link_to users_path do %>
+          <h1 class="panel-title">
+            Users
+            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>  
+          </h1>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <%= render 'search_form' %>
+  </div>
+  <div class="list-group">
+    <div id="talks">
+      <%= render(@talks) || no_records('talks') %>
+    </div>
+    <div class="list-group-item pagination">
+      <%= render partial: 'shared/next_page_link', locals: { objects: @talks } %>
+    </div>
+  </div>
+</div>

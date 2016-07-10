@@ -12,8 +12,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-offset-2 col-sm-8 nopadding">
+          <%= render 'header/navbar'%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-offset-3 col-sm-6 nopadding">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

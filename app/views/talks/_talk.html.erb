@@ -1,0 +1,12 @@
+<div class="list-group-item">
+  <div class="row-picture">
+    <img class="circle" src="http://iconizer.net/files/Duesseldorf/orig/user.png" alt="icon">
+  </div>
+  <div class="row-content word-break">
+    <h4 class="list-group-item-heading">
+      <%= link_to talk.title, talk %>
+    </h4>
+    <%= last_message_of(talk) %>
+  </div>
+</div>
+<div class="list-group-separator"></div>

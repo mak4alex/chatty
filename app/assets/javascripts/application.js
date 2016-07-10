@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require material
+//= require jquery.infinite-pages
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {

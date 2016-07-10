@@ -1,0 +1,17 @@
+<div id=<%= dom_id(user) %> class="list-group-item">
+  <div class="row-picture">
+    <img class="circle" src="http://iconizer.net/files/Duesseldorf/orig/user.png" alt="icon">
+  </div>
+  <div class="row-content">
+    <div class="action-secondary banned_link">
+      <% if_admin do %>
+        <%= banned_link(user) %>
+      <% end %>
+    </div>
+    <h4 class="list-group-item-heading"><%= user.name %></h4>
+    <p>
+      <%= link_to 'Write me', talks_path(user_ids: [current_user.id, user.id]), method: :post %>
+    </p>
+  </div>
+</div>
+<div class="list-group-separator"></div>
