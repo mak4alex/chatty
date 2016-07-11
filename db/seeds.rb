@@ -18,14 +18,14 @@ talk = Talk.create!(title: 'Alice with Bobby')
 
 talk.users << [alice, bob]
 
-50.times do |i|
+40.times do |i|
   talk.messages << Message.create!(
     talk: talk,
     user: [alice, bob].sample, 
     body: Faker::Lorem.sentence)
 end
 
-50.times do |i|
+40.times do |i|
   User.create(
     email: "user#{i}@example.com", 
     name: Faker::Name.name,

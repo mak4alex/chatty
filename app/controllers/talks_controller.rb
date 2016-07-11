@@ -1,6 +1,6 @@
 class TalksController < ApplicationController
   before_action :set_talk, only: [:show]
-  before_action :only_owner!, only: [:show]
+  before_action :only_owner_or_admin!, only: [:show]
 
   
   def index
@@ -25,7 +25,9 @@ class TalksController < ApplicationController
       params.permit(user_ids: [])
     end
     
-    def only_owner!
-      redirect_to talks_url unless @talk.owned?(current_user)
+    def only_owner_or_admin!
+      unless @talk.owned?(current_user) || current_user.admin?
+        redirect_to talks_url 
+      end
     end    
 end

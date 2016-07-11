@@ -1,7 +1,11 @@
 module UsersHelper
   
   def if_admin
-    yield if current_user.admin?
+    begin
+      yield if current_user.admin?
+    rescue
+      # need to solve current_user in socket response
+    end
   end
   
   def banned_link(user)

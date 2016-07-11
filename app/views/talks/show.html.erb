@@ -16,13 +16,12 @@
   <div class="panel-body">
     <%= render 'messages/form' %>
   </div>
-  <div class="panel-footer messages-wraper">
+  <div class="list-group messages-wraper">
     <div id="messages">
-      <%= render(@messages) || no_records('messages') %>
+      <%= render @messages || no_records('messages') %>
     </div>
-    <div class="pagination">
+    <div class="list-group-item pagination">
       <%= render partial: 'shared/next_page_link', locals: { objects: @messages }%>
     </div>
   </div>
 </div>
- 

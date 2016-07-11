@@ -59,6 +59,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Profiling toolkit for Rack applications with Rails integration. Client Side profiling, DB profiling and Server profiling.
   gem 'rack-mini-profiler', '~> 0.10.1'
+  gem 'better_errors', '~> 2.1', '>= 2.1.1'
 end
 
 group :production do

@@ -1,14 +1,20 @@
-<div id="message" class="media">
-  <div class="media-left">
+<div id=<%= dom_id(message) %> class="list-group-item message">
+  <div class="row-picture">
     <img class="circle" src="http://iconizer.net/files/Duesseldorf/orig/user.png" alt="icon">
   </div>
-  <div class="media-body word-break">
-    <h4 class="media-heading">
+  <div class="row-content">
+    <div class="action-secondary">
+      <%= message.created_at.strftime("%T %F") %>
+      <% if_admin do %>
+        <%= link_to message, method: :delete, remote: true do %>
+          <i class="material-icons">delete</i>
+        <% end %>
+      <% end %>
+    </div>
+    <h4 class="list-group-item-heading">
       <%= message.user.name %>
-      <span class="label label-default pull-right">
-        <%= message.created_at.strftime("%T %F") %>
-      </span>
     </h4>
-    <p><%= message.body %></p>
+    <p><%= message.body  %></p>
   </div>
 </div>
+<div class="list-group-separator"></div>

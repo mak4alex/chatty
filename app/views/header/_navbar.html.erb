@@ -10,9 +10,14 @@
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
       <%= active_link_to 'Talks', talks_path, wrap_tag: :li %>
+      <% if_admin do %>
+        <%= active_link_to 'Messages', messages_path, wrap_tag: :li %>
+      <% end %>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li class="nav-text">Signed in as <%= current_user.name %></li>
+      <li class="nav-text">
+        Signed in as <%= current_user.name %> <%= if_admin { '(admin)' } %> 
+      </li>
       <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
     </ul>
   </div>

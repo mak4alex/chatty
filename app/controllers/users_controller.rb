@@ -28,8 +28,4 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
     
-    def only_admin!
-      redirect_to root_url unless current_user.admin?
-    end  
-    
 end

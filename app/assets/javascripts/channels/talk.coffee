@@ -14,7 +14,6 @@ $(document).on 'turbolinks:load', ->
         $('#message_submit').prop('disabled', true)
     
       received: (data) ->
-        console.log(data)
         if data.code == 201
           $('#message_submit').prop('disabled', false)
           $('#messages').prepend(data.body)
