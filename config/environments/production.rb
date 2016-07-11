@@ -63,6 +63,11 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :mailgun
   
+  config.action_mailer.default_url_options = { 
+    host: 'ror-chatty.herokuapp.com', 
+    port: 80
+  }
+  
   config.action_mailer.mailgun_settings = {
     address:        ENV['EMAIL_ADDRESS'],
     port:           ENV['EMAIL_PORT'],
