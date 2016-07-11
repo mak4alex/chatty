@@ -1,6 +1,6 @@
 $(document).on 'turbolinks:visit', ->
-  if App.chat
-    App.chat.unsubscribe()
+  if App.talk
+    App.talk.unsubscribe()
     console.log('unsubscribe')
 
 $(document).on 'turbolinks:load', ->
