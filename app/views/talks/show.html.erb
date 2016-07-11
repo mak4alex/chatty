@@ -1,4 +1,6 @@
-<div id="talk" data-talk-id="<%= @talk.id %>" class="panel panel-primary">
+<div id="talk" class="panel panel-primary" data-talk-id="<%= @talk.id %>"
+     data-user-status="<%= current_user.status %>"
+>
   <div class="panel-heading">
     <div class="row">
       <div class="col-xs-9">

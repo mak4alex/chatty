@@ -48,19 +48,13 @@ class Talk < ApplicationRecord
   end
   
   def add_message(data, user)
-    res = {}
-    if user.banned?
-      res[:code] = 403
-      res[:body] = 'You are banned!'
-    else
+    unless user.banned?
       message = messages.create!(
         user_id: data['user_id'],
         body:    data['body']
       )
-      res[:code] = 201
-      res[:body] = ApplicationController.renderer.render message
+      ApplicationController.renderer.render message
     end
-    res
   end
   
   private

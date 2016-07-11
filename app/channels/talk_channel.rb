@@ -13,6 +13,6 @@ class TalkChannel < ApplicationCable::Channel
     talk = Talk.find(params[:id])
     user = User.find(data['user_id'])
     res = talk.add_message(data, user)
-    TalkChannel.broadcast_to(talk, res)
+    TalkChannel.broadcast_to(talk, res) if res
   end
 end

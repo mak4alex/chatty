@@ -4,12 +4,10 @@ $(document).on 'turbolinks:load', ->
     user_id = $('#message_user_id').val()
     body = $('#message_body').val()
     $('#message_body').val('')
-    if body
-      App.talk.say(body, user_id) 
-    else
-      setTimeout ( ->
-        $('#message_submit').prop('disabled', false)
-      ), 100
+    App.talk.say(body, user_id) if body
+    setTimeout ( ->
+      $('#message_submit').prop('disabled', false)
+    ), 100
       
     
   # Configure infinite messages

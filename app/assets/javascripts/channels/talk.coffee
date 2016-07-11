@@ -5,21 +5,23 @@ $(document).on 'turbolinks:visit', ->
 
 $(document).on 'turbolinks:load', ->
   talk_id = $('#talk').data('talk-id')
-  if talk_id
+  status = $('#talk').data('user-status')
+  
+  if status == 'banned'
+    $('#message_submit').prop('disabled', true)
+    alert("Error 403: You are banned!")
+
+  if talk_id 
     App.talk = App.cable.subscriptions.create { channel: "TalkChannel", id: talk_id }, 
       connected: ->
-        $('#message_submit').prop('disabled', false)
+        console.log('connected')
     
       disconnected: ->
         $('#message_submit').prop('disabled', true)
     
       received: (data) ->
-        if data.code == 201
-          $('#message_submit').prop('disabled', false)
-          $('#messages').prepend(data.body)
-          $('#no_records').hide()
-        else
-          alert("Error #{data.code}: #{data.body}")
-    
+        $('#messages').prepend(data)
+        $('#no_records').hide()
+
       say: (body, user_id) -> 
         @perform 'say', body: body, user_id: user_id
